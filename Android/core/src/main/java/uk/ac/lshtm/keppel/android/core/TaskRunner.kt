@@ -1,4 +1,4 @@
-package uk.ac.lshtm.keppel.core
+package uk.ac.lshtm.keppel.android.core
 
 interface TaskRunner {
 

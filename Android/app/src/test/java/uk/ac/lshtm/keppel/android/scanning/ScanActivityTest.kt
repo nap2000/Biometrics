@@ -16,7 +16,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.android.controller.ActivityController
 import org.robolectric.annotation.LooperMode
 import uk.ac.lshtm.keppel.android.Keppel
-import uk.ac.lshtm.keppel.core.Scanner
+import uk.ac.lshtm.keppel.android.core.Scanner
 
 @RunWith(RobolectricTestRunner::class)
 @LooperMode(LooperMode.Mode.PAUSED)
@@ -96,6 +96,10 @@ open class FakeScanner : Scanner {
 
     override fun captureISOTemplate(): String {
         return ""
+    }
+
+    override fun captureWSQImage(context: Context): ByteArray {
+        return "".toByteArray()
     }
 
     override fun stopCapture() {

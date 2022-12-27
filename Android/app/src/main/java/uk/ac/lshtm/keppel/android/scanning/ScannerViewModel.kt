@@ -1,12 +1,13 @@
 package uk.ac.lshtm.keppel.android.scanning
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import uk.ac.lshtm.keppel.android.scanning.ScannerState.*
-import uk.ac.lshtm.keppel.core.Scanner
-import uk.ac.lshtm.keppel.core.TaskRunner
+import uk.ac.lshtm.keppel.android.core.Scanner
+import uk.ac.lshtm.keppel.android.core.TaskRunner
 
 class ScannerViewModel(
     private val scanner: Scanner,
@@ -15,9 +16,12 @@ class ScannerViewModel(
 
     private val _scannerState = MutableLiveData(DISCONNECTED)
     private val _fingerTemplate = MutableLiveData<String>(null)
+    private val _fingerWSQ = MutableLiveData<ByteArray>(null)
 
     val scannerState: LiveData<ScannerState> = _scannerState
     val fingerTemplate: LiveData<String> = _fingerTemplate
+    val fingerWSQ: LiveData<ByteArray> = _fingerWSQ
+    var type: String = "iso";
 
     init {
         scanner.connect {
@@ -29,13 +33,20 @@ class ScannerViewModel(
         }
     }
 
-    fun capture() {
+    fun capture(context: Context) {
         _scannerState.value = SCANNING
 
         taskRunner.execute {
-            val isoTemplate = scanner.captureISOTemplate()
+
+            if(type == "wsq") {
+                val wsqImage = scanner.captureWSQImage(context)
+                _fingerWSQ.postValue(wsqImage)
+            } else {
+                val isoTemplate = scanner.captureISOTemplate()
+                _fingerTemplate.postValue(isoTemplate)
+            }
             _scannerState.postValue(CONNECTED)
-            _fingerTemplate.postValue(isoTemplate)
+
         }
     }
 

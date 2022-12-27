@@ -4,10 +4,10 @@ import android.content.Context
 import com.mantra.mfs100.FingerData
 import com.mantra.mfs100.MFS100
 import com.mantra.mfs100.MFS100Event
-import uk.ac.lshtm.keppel.core.Scanner
-import uk.ac.lshtm.keppel.core.toHexString
+import uk.ac.lshtm.keppel.android.core.toHexString
 
-class MFS100Scanner(private val context: Context, mfs100Provider: (MFS100Event) -> MFS100) : Scanner {
+class MFS100Scanner(private val context: Context, mfs100Provider: (MFS100Event) -> MFS100) :
+    uk.ac.lshtm.keppel.android.core.Scanner {
 
     constructor(context: Context) : this(context, ::MFS100)
 
@@ -38,7 +38,7 @@ class MFS100Scanner(private val context: Context, mfs100Provider: (MFS100Event) 
         }
     })
 
-    override fun connect(onConnected: () -> Unit): Scanner {
+    override fun connect(onConnected: () -> Unit): uk.ac.lshtm.keppel.android.core.Scanner {
         this.onConnected = onConnected
         mfS100.SetApplicationContext(context)
         return this
@@ -46,6 +46,16 @@ class MFS100Scanner(private val context: Context, mfs100Provider: (MFS100Event) 
 
     override fun onDisconnect(onDisconnected: () -> Unit) {
         this.onDisconnected = onDisconnected
+    }
+
+    override fun captureWSQImage(context: Context): ByteArray? {
+        val fingerData = FingerData()
+        val result = mfS100.AutoCapture(fingerData, 10000, false)
+        return if (result == 0) {
+            fingerData.FingerImage()
+        } else {
+            null
+        }
     }
 
     override fun captureISOTemplate(): String? {

@@ -6,8 +6,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.*
 import org.robolectric.RobolectricTestRunner
-import uk.ac.lshtm.keppel.core.Scanner
-import uk.ac.lshtm.keppel.core.TaskRunner
+import uk.ac.lshtm.keppel.android.core.Scanner
+import uk.ac.lshtm.keppel.android.core.TaskRunner
 
 @RunWith(RobolectricTestRunner::class)
 class ScannerViewModelTest {

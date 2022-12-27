@@ -1,11 +1,13 @@
 package uk.ac.lshtm.keppel.android
 
+import android.R
+import android.R.attr.bitmap
+import android.R.id
 import android.app.Activity
 import android.content.Context
-import androidx.core.content.edit
-import androidx.preference.PreferenceManager
-import androidx.preference.PreferenceManager.getDefaultSharedPreferences
-import androidx.test.core.app.ApplicationProvider
+import android.graphics.Bitmap.CompressFormat
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -19,7 +21,11 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import uk.ac.lshtm.keppel.android.scanning.ScanActivity
 import uk.ac.lshtm.keppel.android.scanning.ScannerFactory
-import uk.ac.lshtm.keppel.core.Scanner
+import uk.ac.lshtm.keppel.android.core.Scanner
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
+import java.security.AccessController.getContext
+
 
 @RunWith(AndroidJUnit4::class)
 class ScanFingerTest {
@@ -65,6 +71,10 @@ class FakeScanner(private val fingerData: String) : Scanner {
 
     override fun captureISOTemplate(): String {
         return "ISO TEMPLATE $fingerData"
+    }
+
+    override fun captureWSQImage(context: Context): ByteArray? {
+        return "ISO TEMPLATE $fingerData".toByteArray()
     }
 
     override fun stopCapture() {

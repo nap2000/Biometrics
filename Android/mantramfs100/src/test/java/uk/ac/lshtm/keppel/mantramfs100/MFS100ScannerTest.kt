@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers.any
 import org.mockito.Mockito.*
 import org.robolectric.RobolectricTestRunner
-import uk.ac.lshtm.keppel.core.toHexString
+import uk.ac.lshtm.keppel.android.core.toHexString
 
 @RunWith(RobolectricTestRunner::class)
 class MFS100ScannerTest {

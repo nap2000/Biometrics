@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager.getDefaultSharedPreferences
 import uk.ac.lshtm.keppel.android.scanning.ScannerFactory
 import uk.ac.lshtm.keppel.android.tasks.ThreadTaskRunner
-import uk.ac.lshtm.keppel.core.TaskRunner
+import uk.ac.lshtm.keppel.android.core.TaskRunner
 import uk.ac.lshtm.keppel.android.scanning.scanners.DemoScannerFactory
 import uk.ac.lshtm.keppel.android.scanning.scanners.MFS100ScannerFactory
 

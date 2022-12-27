@@ -1,7 +1,7 @@
 package uk.ac.lshtm.keppel.android.scanning
 
 import android.content.Context
-import uk.ac.lshtm.keppel.core.Scanner
+import uk.ac.lshtm.keppel.android.core.Scanner
 
 interface ScannerFactory {
 

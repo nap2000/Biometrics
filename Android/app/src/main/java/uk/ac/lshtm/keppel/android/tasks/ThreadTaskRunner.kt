@@ -1,6 +1,6 @@
 package uk.ac.lshtm.keppel.android.tasks
 
-import uk.ac.lshtm.keppel.core.TaskRunner
+import uk.ac.lshtm.keppel.android.core.TaskRunner
 
 class ThreadTaskRunner : TaskRunner {
 

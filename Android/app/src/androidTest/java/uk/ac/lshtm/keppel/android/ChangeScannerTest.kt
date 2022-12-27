@@ -16,7 +16,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import uk.ac.lshtm.keppel.android.scanning.ScannerFactory
 import uk.ac.lshtm.keppel.android.settings.SettingsActivity
-import uk.ac.lshtm.keppel.core.Scanner
+import uk.ac.lshtm.keppel.android.core.Scanner
 
 @RunWith(AndroidJUnit4::class)
 class ChangeScannerTest {

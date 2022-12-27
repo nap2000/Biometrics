@@ -1,4 +1,6 @@
-package uk.ac.lshtm.keppel.core
+package uk.ac.lshtm.keppel.android.core
+
+import android.content.Context
 
 interface Scanner {
 
@@ -11,6 +13,8 @@ interface Scanner {
      * placed on the scanner
      */
     fun captureISOTemplate(): String?
+
+    fun captureWSQImage(context: Context): ByteArray?
 
     fun stopCapture()
 
