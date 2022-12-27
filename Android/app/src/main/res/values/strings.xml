@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Keppel</string>
+    <string name="app_name">SmapFingerprint</string>
     <string name="capture">Capture</string>
     <string name="place_finger">Place finger on scanner</string>
     <string name="connect_scanner">Connect scanner</string>

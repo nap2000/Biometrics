@@ -1,6 +1,6 @@
 ![](Android/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
 
-# Keppel
+# SmapFingerprint
 
 This repository is a form of [Keppel](https://github.com/LSHTM-ORK/ODK_Biometrics).   We have added support for capturing fingerprint images in addition to ISO templates.
 
