@@ -98,7 +98,7 @@ open class FakeScanner : Scanner {
         return ""
     }
 
-    override fun captureWSQImage(context: Context): ByteArray {
+    override fun captureImage(context: Context): ByteArray {
         return "".toByteArray()
     }
 

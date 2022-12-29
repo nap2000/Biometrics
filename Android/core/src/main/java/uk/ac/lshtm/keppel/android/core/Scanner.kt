@@ -14,7 +14,7 @@ interface Scanner {
      */
     fun captureISOTemplate(): String?
 
-    fun captureWSQImage(context: Context): ByteArray?
+    fun captureImage(context: Context): ByteArray?
 
     fun stopCapture()
 

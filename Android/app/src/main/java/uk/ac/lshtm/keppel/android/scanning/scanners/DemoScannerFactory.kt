@@ -34,7 +34,7 @@ private class DemoScanner : Scanner {
         return "demo-finger-print-iso-template"
     }
 
-    override fun captureWSQImage(context: Context): ByteArray? {
+    override fun captureImage(context: Context): ByteArray? {
 
         Thread.sleep(3000)
         val fis: InputStream = context.getAssets().open("sample.png")

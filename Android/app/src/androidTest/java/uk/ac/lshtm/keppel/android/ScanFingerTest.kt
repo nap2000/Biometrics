@@ -73,7 +73,7 @@ class FakeScanner(private val fingerData: String) : Scanner {
         return "ISO TEMPLATE $fingerData"
     }
 
-    override fun captureWSQImage(context: Context): ByteArray? {
+    override fun captureImage(context: Context): ByteArray? {
         return "ISO TEMPLATE $fingerData".toByteArray()
     }
 

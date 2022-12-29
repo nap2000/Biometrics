@@ -75,7 +75,7 @@ class ScanActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.fingerWSQ.observe(this, Observer { image ->
+        viewModel.fingerImage.observe(this, Observer { image ->
             if (image != null) {
 
                 val imagePath = File(applicationContext.filesDir, "scan_images")

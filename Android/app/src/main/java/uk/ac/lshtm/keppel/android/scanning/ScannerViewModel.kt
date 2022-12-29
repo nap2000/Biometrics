@@ -16,11 +16,11 @@ class ScannerViewModel(
 
     private val _scannerState = MutableLiveData(DISCONNECTED)
     private val _fingerTemplate = MutableLiveData<String>(null)
-    private val _fingerWSQ = MutableLiveData<ByteArray>(null)
+    private val _fingerImage = MutableLiveData<ByteArray>(null)
 
     val scannerState: LiveData<ScannerState> = _scannerState
     val fingerTemplate: LiveData<String> = _fingerTemplate
-    val fingerWSQ: LiveData<ByteArray> = _fingerWSQ
+    val fingerImage: LiveData<ByteArray> = _fingerImage
     var type: String = "iso";
 
     init {
@@ -38,9 +38,9 @@ class ScannerViewModel(
 
         taskRunner.execute {
 
-            if(type == "wsq") {
-                val wsqImage = scanner.captureWSQImage(context)
-                _fingerWSQ.postValue(wsqImage)
+            if(type == "image") {
+                val image = scanner.captureImage(context)
+                _fingerImage.postValue(image)
             } else {
                 val isoTemplate = scanner.captureISOTemplate()
                 _fingerTemplate.postValue(isoTemplate)

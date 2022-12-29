@@ -48,7 +48,7 @@ class MFS100Scanner(private val context: Context, mfs100Provider: (MFS100Event) 
         this.onDisconnected = onDisconnected
     }
 
-    override fun captureWSQImage(context: Context): ByteArray? {
+    override fun captureImage(context: Context): ByteArray? {
         val fingerData = FingerData()
         val result = mfS100.AutoCapture(fingerData, 10000, false)
         return if (result == 0) {
