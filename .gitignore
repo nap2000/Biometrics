@@ -1,4 +1,5 @@
 SDKs
 docs/~$form.xlsx
+release/
 .*
 !.gitignore

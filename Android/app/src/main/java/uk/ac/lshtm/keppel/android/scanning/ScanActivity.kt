@@ -53,6 +53,7 @@ class ScanActivity : AppCompatActivity() {
                     connect_progress_bar.visibility = View.GONE
                     capture_button.visibility = View.VISIBLE
                     capture_progress_bar.visibility = View.GONE
+                    viewModel.capture(applicationContext)
                 }
 
                 ScannerState.SCANNING -> {
